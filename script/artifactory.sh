@@ -36,5 +36,7 @@ ufw allow 8081
 
 
 
+
+
 # systemctl start artifactory.service
 # systemctl status artifactory.service
