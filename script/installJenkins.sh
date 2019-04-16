@@ -1,2 +1,2 @@
-sudo apt-get install -y jenkins
+apt-get install -y jenkins
 

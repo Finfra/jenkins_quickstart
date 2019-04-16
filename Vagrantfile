@@ -5,6 +5,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/xenial64"               
   # totest:  bento/ubuntu-18.04
   
+  # jenkins Server
   config.vm.define "jenkins1" do |server|
     server.vm.hostname = "jenkins1"
     server.vm.provider :virtualbox do |v|
@@ -15,6 +16,8 @@ Vagrant.configure("2") do |config|
     server.vm.provision "shell", path: "./script/installJenkins.sh", args: ""
     server.vm.provision "shell", path: "./script/setHosts.sh", args: "#{SUBNET}"
   end  
+
+  # Web Server
   config.vm.define "jm1" do |jm|
     jm.vm.hostname = "jm1"
     jm.vm.provider :virtualbox do |v|
@@ -22,9 +25,11 @@ Vagrant.configure("2") do |config|
     end    
     jm.vm.network "private_network", ip: "#{SUBNET}.111"
     jm.vm.provision "shell", path: "./script/base.sh", args: ""
+    jm.vm.provision "shell", path: "./script/install_tomcat.sh", args: ""
     jm.vm.provision "shell", path: "./script/setHosts.sh", args: "#{SUBNET}"
   end  
 
+  # Artifactory Server
   config.vm.define "jm2" do |jm|
     jm.vm.hostname = "jm2"
     jm.vm.provider :virtualbox do |v|
