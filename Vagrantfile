@@ -34,7 +34,13 @@ Vagrant.configure("2") do |config|
     jm.vm.hostname = "jm2"
     jm.vm.provider :virtualbox do |v|
       v.name = "jm2"
+      v.customize [
+        "modifyvm", :id,
+        "--memory", "2048",
+       ]
+
     end    
+
     jm.vm.network "private_network", ip: "#{SUBNET}.121"
     jm.vm.provision "shell", path: "./script/base.sh", args: ""
     jm.vm.provision "shell", path: "./script/artifactory.sh", args: ""
