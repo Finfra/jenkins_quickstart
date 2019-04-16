@@ -1,0 +1,15 @@
+version: '2'
+services:
+  jenkins:
+    image: 'jenkins/jenkins:lts'
+    labels:
+      kompose.service.type: nodeport
+    ports:
+      - '80:8080'
+      - '443:8443'
+      - '50000:50000'
+    volumes:
+      - 'jenkins_data:/jenkins_config'
+volumes:
+  jenkins_data:
+    driver: local
