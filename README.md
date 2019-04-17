@@ -24,5 +24,5 @@ exec cute ". check.sh"
 
 
 
-# if u has reboot, do this
+# If ur os has rebooted then do this.
 vagrant ssh jm2 -c "sudo docker start artifactory"

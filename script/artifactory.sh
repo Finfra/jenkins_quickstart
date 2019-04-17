@@ -8,6 +8,7 @@
 
 curl -s https://get.docker.com/ | sudo sh
 
+rm -rf /artifactory
 mkdir -p  /artifactory
 chmod 777 -R /artifactory
 
