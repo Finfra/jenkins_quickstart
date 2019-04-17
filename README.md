@@ -18,6 +18,17 @@ vagrant ssh jenkins1 -c "sudo cat password /var/lib/jenkins/secrets/initialAdmin
 ## jm2      : Artifactory Server 
 * id/pw : admin/password
 
+### If your os has rebooted then do this.
+* Artifactory reboot.
+```
+vagrant ssh jm2 -c "sudo artifactoryReset.sh"
+```
+
+### If you wnat to connect Artifactory OS (jm2)
+```
+    vagrant ssh jm2 -c "sudo docker exec -it --user root artifactory bash"
+```
+
 
 # Setting for direct connecting for Ubuntu/Mac
 * After 'vagrant up', if you do this network setting then you can connect guest os directly.
@@ -27,16 +38,6 @@ vagrant ssh jenkins1 -c "sudo cat password /var/lib/jenkins/secrets/initialAdmin
 bash check.sh
 ```
 
-# If ur os has rebooted then do this.
-* Artifactory reboot.
-```
-vagrant ssh jm2 -c "sudo artifactoryReset.sh"
-```
-
-# If you wnat to connect Artifactory OS (jm2)
-```
-    vagrant ssh jm2 -c "sudo docker exec -it --user root artifactory bash"
-```
 
 # Manual port forward Setting
 * It was done by Vagrant Script

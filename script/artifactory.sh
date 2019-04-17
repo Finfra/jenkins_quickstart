@@ -8,7 +8,8 @@
 
 curl -s https://get.docker.com/ | sudo sh
 
-rm -rf /artifactory
+
+echo '
 mkdir -p  /artifactory
 chmod 777 -R /artifactory
 
@@ -21,6 +22,10 @@ docker.bintray.io/jfrog/artifactory-oss:latest
 
 docker exec -d artifactory chmod 777 /var/opt/jfrog/artifactory
 docker exec -d artifactory chown -R 1030:1030 /var/opt/jfrog/artifactory
+'>/usr/local/sbin/artifactoryReset.sh
+chmod +x /usr/local/sbin/artifactoryReset.sh
+bash artifactoryReset.sh
+
 
 echo '
 echo "
