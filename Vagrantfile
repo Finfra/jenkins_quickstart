@@ -6,33 +6,35 @@ Vagrant.configure("2") do |config|
   # totest:  bento/ubuntu-18.04
   
   # jenkins Server
-  config.vm.define "jenkins1" do |server|
-    server.vm.hostname = "jenkins1"
-    server.vm.provider :virtualbox do |v|
+  config.vm.define "jenkins1" do |jenkins1|
+    jenkins1.vm.hostname = "jenkins1"
+    jenkins1.vm.provider :virtualbox do |v|
       v.name = "jenkins1"
     end    
-    server.vm.network "private_network", ip: "#{SUBNET}.101"
-    server.vm.provision "shell", path: "./script/base.sh", args: ""
-    server.vm.provision "shell", path: "./script/installJenkins.sh", args: ""
-    server.vm.provision "shell", path: "./script/setHosts.sh", args: "#{SUBNET}"
+    jenkins1.vm.network "private_network", ip: "#{SUBNET}.101"
+    jenkins1.vm.network "forwarded_port", guest: 8080, host: 8888, auto_correct: true
+    jenkins1.vm.provision "shell", path: "./script/base.sh", args: ""
+    jenkins1.vm.provision "shell", path: "./script/installJenkins.sh", args: ""
+    jenkins1.vm.provision "shell", path: "./script/setHosts.sh", args: "#{SUBNET}"
   end  
 
   # Web Server
-  config.vm.define "jm1" do |jm|
-    jm.vm.hostname = "jm1"
-    jm.vm.provider :virtualbox do |v|
+  config.vm.define "jm1" do |jm1|
+    jm1.vm.hostname = "jm1"
+    jm1.vm.provider :virtualbox do |v|
       v.name = "jm1"
     end    
-    jm.vm.network "private_network", ip: "#{SUBNET}.111"
-    jm.vm.provision "shell", path: "./script/base.sh", args: ""
-    jm.vm.provision "shell", path: "./script/install_tomcat.sh", args: ""
-    jm.vm.provision "shell", path: "./script/setHosts.sh", args: "#{SUBNET}"
+    jm1.vm.network "private_network", ip: "#{SUBNET}.111"
+    jm1.vm.network "forwarded_port", guest: 8080, host: 8080, auto_correct: true
+    jm1.vm.provision "shell", path: "./script/base.sh", args: ""
+    jm1.vm.provision "shell", path: "./script/install_tomcat.sh", args: ""
+    jm1.vm.provision "shell", path: "./script/setHosts.sh", args: "#{SUBNET}"
   end  
 
   # Artifactory Server
-  config.vm.define "jm2" do |jm|
-    jm.vm.hostname = "jm2"
-    jm.vm.provider :virtualbox do |v|
+  config.vm.define "jm2" do |jm2|
+    jm2.vm.hostname = "jm2"
+    jm2.vm.provider :virtualbox do |v|
       v.name = "jm2"
       v.customize [
         "modifyvm", :id,
@@ -41,10 +43,11 @@ Vagrant.configure("2") do |config|
 
     end    
 
-    jm.vm.network "private_network", ip: "#{SUBNET}.121"
-    jm.vm.provision "shell", path: "./script/base.sh", args: ""
-    jm.vm.provision "shell", path: "./script/artifactory.sh", args: ""
-    jm.vm.provision "shell", path: "./script/setHosts.sh", args: "#{SUBNET}"
+    jm2.vm.network "private_network", ip: "#{SUBNET}.121"
+    jm2.vm.network "forwarded_port", guest: 8081, host: 8081, auto_correct: true
+    jm2.vm.provision "shell", path: "./script/base.sh", args: ""
+    jm2.vm.provision "shell", path: "./script/artifactory.sh", args: ""
+    jm2.vm.provision "shell", path: "./script/setHosts.sh", args: "#{SUBNET}"
   end  
 
 end
