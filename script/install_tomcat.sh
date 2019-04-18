@@ -11,10 +11,15 @@ chmod g+x /opt/tomcat/conf
 chown -R tomcat /opt/tomcat/webapps/ /opt/tomcat/work/ /opt/tomcat/temp/ /opt/tomcat/logs/
 echo '<?xml version="1.0" encoding="utf-8"?>
 <tomcat-users>
-  <role rolename="manager-script"/>
+  <role rolename="admin"/>
+  <role rolename="manager"/>
+  <role rolename="admin-gui"/>
+  <role rolename="admin-script"/>
   <role rolename="manager-gui"/>
-  <user username="admin" password="password" roles="admin,manager,manager-gui,admin-script,manager-gui,manager-script,manager-jmx,manager-status"/>
-  <user username="admin" password="password" roles="admin,manager-gui,admin-gui"/>
+  <role rolename="manager-script"/>
+  <role rolename="manager-jmx"/>
+  <role rolename="manager-status"/>
+  <user username="admin" password="password" roles="admin,manager,admin-gui,admin-script,manager-gui,manager-script,manager-jmx,manager-status"/>
 </tomcat-users>
 '>/opt/tomcat/conf/tomcat-users.xml
 chmod 0640 /opt/tomcat/conf/tomcat-users.xml
