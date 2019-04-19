@@ -10,7 +10,12 @@ Vagrant.configure("2") do |config|
     jenkins1.vm.hostname = "jenkins1"
     jenkins1.vm.provider :virtualbox do |v|
       v.name = "jenkins1"
+      v.customize [
+        "modifyvm", :id,
+        "--memory", "2048",
+       ]
     end    
+
     jenkins1.vm.network "private_network", ip: "#{SUBNET}.101"
     jenkins1.vm.network "forwarded_port", guest: 8080, host: 8888, auto_correct: true
     jenkins1.vm.provision "shell", path: "./script/base.sh", args: ""
