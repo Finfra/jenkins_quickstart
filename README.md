@@ -54,4 +54,4 @@ bash check.sh
     click setting → Network →  Adapter1 → Port forwarding →  "+" button →  Rule1(Host IP:127.0.0.1,HostPort:8080,GUEST IP:(not set),GuestPort:8080) →  OK
 
 ## jm2(Artifactory Server)
-    click setting → Network →  Adapter1 → Port forwarding →  "+" button →  Rule1(Host IP:127.0.0.1,HostPort:81,GUEST IP:(not set),GuestPort:8081) →  OK
+    click setting → Network →  Adapter1 → Port forwarding →  "+" button →  Rule1(Host IP:127.0.0.1,HostPort:8081,GUEST IP:(not set),GuestPort:8081) →  OK
