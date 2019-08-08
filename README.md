@@ -1,5 +1,7 @@
 # Usage
 ```
+git config --global core.autocrlf false
+git config --global core.eol lf
 git clone https://github.com/Finfra/jenkins_quickstart
 cd jenkins_quickstart
 vagrant up
