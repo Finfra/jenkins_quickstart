@@ -2,7 +2,7 @@ useradd -s /bin/false  -d /opt/tomcat tomcat
 rm -rf /opt/tomcat
 mkdir /opt/tomcat
 chown tomcat:tomcat /opt/tomcat
-wget http://mirror.apache-kr.org/tomcat/tomcat-7/v7.0.94/bin/apache-tomcat-7.0.94.tar.gz  
+wget https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.94/bin/apache-tomcat-7.0.94.tar.gz
 tar xzvf apache-tomcat-7.0.94.tar.gz -C /opt/tomcat --strip-components=1
 chgrp -R tomcat /opt/tomcat
 mkdir /opt/tomcat/conf
