@@ -21,7 +21,7 @@ vagrant ssh jenkins1 -c "sudo cat password /var/lib/jenkins/secrets/initialAdmin
 ## jm1      : Tomcat Server
 * id/pw : admin/password
 
-## jm2      : Artifactory Server 
+## jm2      : Artifactory Server
 * id/pw : admin/password
 
 ### If your os has rebooted then do this.
@@ -39,7 +39,7 @@ vagrant ssh jm2 -c "sudo artifactoryReset.sh"
 # Setting for direct connecting for Ubuntu/Mac
 * After 'vagrant up', if you do this network setting then you can connect guest os directly.
 * System Preference →  Network →  "+" button →  Network CIDR: 172.22.101.0/24 →  OK
-* Check 
+* Check
 ```
 bash check.sh
 ```
@@ -57,3 +57,4 @@ bash check.sh
 
 ## jm2(Artifactory Server)
     click setting → Network →  Adapter1 → Port forwarding →  "+" button →  Rule1(Host IP:127.0.0.1,HostPort:8081,GUEST IP:(not set),GuestPort:8081) →  OK
+    click setting → Network →  Adapter1 → Port forwarding →  "+" button →  Rule1(Host IP:127.0.0.1,HostPort:8082,GUEST IP:(not set),GuestPort:8082) →  OK

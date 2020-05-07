@@ -1,3 +1,8 @@
+#!/bin/bash
+echo --------------------------------------------------------------------------------
+echo "- installJenkins.sh start"
+echo --------------------------------------------------------------------------------
+
 apt-get -y install gradle
 apt-get -y install jenkins
 apt-get -y install maven
@@ -8,3 +13,7 @@ echo export PATH=\$PATH:$apath    >> /etc/bash.bashrc
 tail /etc/bash.bashrc
 . /etc/bash.bashrc
 mvn -v
+
+echo --------------------------------------------------------------------------------
+echo "- installJenkins.sh end"
+echo --------------------------------------------------------------------------------
