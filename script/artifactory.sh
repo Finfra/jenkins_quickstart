@@ -26,8 +26,8 @@ docker rm -f artifactory ;docker run -d        \
    docker.bintray.io/jfrog/artifactory-oss:latest
     # -v /vagrant/artifactory:/var/opt/jfrog/artifactory \
 
-docker exec -d artifactory chmod 777 /var/opt/jfrog/artifactory
-docker exec -d artifactory chown -R 1030:1030 /var/opt/jfrog/artifactory
+# docker exec -d artifactory chmod 777 /var/opt/jfrog/artifactory
+# docker exec -d artifactory chown -R 1030:1030 /var/opt/jfrog/artifactory
 '>/usr/local/sbin/artifactoryReset.sh
 chmod +x /usr/local/sbin/artifactoryReset.sh
 bash artifactoryReset.sh

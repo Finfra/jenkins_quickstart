@@ -54,6 +54,3 @@ bash check.sh
 ## jm2(Artifactory Server)
     click setting → Network →  Adapter1 → Port forwarding →  "+" button →  Rule1(Host IP:127.0.0.1,HostPort:8081,GUEST IP:(not set),GuestPort:8081) →  OK
     click setting → Network →  Adapter1 → Port forwarding →  "+" button →  Rule1(Host IP:127.0.0.1,HostPort:8082,GUEST IP:(not set),GuestPort:8082) →  OK
-
-# Todo
-- jm2의 /etc/resolv.conf 문제 
