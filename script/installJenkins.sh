@@ -2,9 +2,9 @@
 echo --------------------------------------------------------------------------------
 echo "- installJenkins.sh start"
 echo --------------------------------------------------------------------------------
+apt-get -y install jenkins
 
 apt-get -y install gradle
-apt-get -y install jenkins
 apt-get -y install maven
 apath=$(dirname $(ls -als $(ls -als $(which mvn) |awk '{print $NF}')|awk '{print $NF}'))
 echo export M2_HOME=${apath%/*} >> /etc/bash.bashrc

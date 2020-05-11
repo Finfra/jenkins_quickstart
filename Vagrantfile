@@ -4,8 +4,8 @@ SUBNET="172.22.101"
 Vagrant.configure("2") do |config|
   #config.vm.box = "ubuntu/xenial64"
   # config.vm.box = "generic/ubuntu1804"
-  config.vm.box = "generic/ubuntu1804"
-  # config.vm.box = "bento/ubuntu-18.04"
+  # config.vm.box = "generic/ubuntu1804"
+  config.vm.box = "bento/ubuntu-18.04"
   # totest:  bento/ubuntu-18.04
 
   # jenkins Server
@@ -53,6 +53,7 @@ Vagrant.configure("2") do |config|
 
     jm2.vm.network "private_network", ip: "#{SUBNET}.121"
     jm2.vm.network "forwarded_port", guest: 8081, host: 8081, auto_correct: true
+    jm2.vm.network "forwarded_port", guest: 8082, host: 8082, auto_correct: true
     jm2.vm.provision "shell", path: "./script/base.sh", args: ""
     jm2.vm.provision "shell", path: "./script/artifactory.sh", args: ""
     jm2.vm.provision "shell", path: "./script/setHosts.sh", args: "#{SUBNET}"
