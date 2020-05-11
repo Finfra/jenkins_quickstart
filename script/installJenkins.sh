@@ -3,6 +3,7 @@ echo ---------------------------------------------------------------------------
 echo "- installJenkins.sh start"
 echo --------------------------------------------------------------------------------
 apt-get -y install jenkins
+systemctl  enable  jenkins
 
 apt-get -y install gradle
 apt-get -y install maven
