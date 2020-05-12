@@ -23,7 +23,7 @@ vagrant ssh jenkins1 -c "sudo cat password /var/lib/jenkins/secrets/initialAdmin
 ### If your os has rebooted then do this.
 * Artifactory reboot.
 ```
-vagrant ssh jm2 -c "sudo artifactoryReset.sh"
+vagrant ssh jm2 -c "sudo /usr/bin/artifactoryReset.sh"
 ```
 
 ### If you wnat to connect Artifactory OS (jm2)

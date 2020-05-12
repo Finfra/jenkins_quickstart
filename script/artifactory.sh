@@ -42,7 +42,7 @@ echo "
 '> /tmp/tnowage.sh
 docker cp /tmp/tnowage.sh artifactory:/tmp/
 docker exec -d --user root artifactory bash /tmp/tnowage.sh
-
+chmod +x /usr/bin/artifactoryReset.sh
 
 ufw allow 8081
 ufw allow 8082
