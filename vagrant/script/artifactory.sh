@@ -30,7 +30,7 @@ docker rm -f artifactory ;docker run -d        \
 # docker exec -d artifactory chown -R 1030:1030 /var/opt/jfrog/artifactory
 '>/usr/local/sbin/artifactoryReset.sh
 chmod +x /usr/local/sbin/artifactoryReset.sh
-bash artifactoryReset.sh
+bash /usr/local/sbin/artifactoryReset.sh
 
 
 echo '
