@@ -29,7 +29,7 @@ echo "
 3.35.139.231  jm2
 ">> /etc/hosts
 
-curl Jenkins:8080|head -c 100
+curl jenkins1:8080|head -c 100
 curl jm1:8080|head -c 100
 curl jm2:8082|head -c 100
 ```
