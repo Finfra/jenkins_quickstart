@@ -13,12 +13,25 @@ terraform apply -auto-approve
 
 ```
 
-  * Output Example
+* Output Example
 ```
 Outputs:
 Jenkins-ip = 15.165.74.195
 jm1-ip = 3.35.135.184
 jm2-ip = 3.35.139.231
+```
+
+* Host File Setting Example for client
+```
+echo "
+15.165.74.195  jenkins1
+3.35.135.184  jm1
+3.35.139.231  jm2
+">> /etc/hosts
+
+curl Jenkins:8080|head -c 100
+curl jm1:8080|head -c 100
+curl jm2:8082|head -c 100
 ```
 
 # Hosts
