@@ -5,7 +5,7 @@ git config --global core.autocrlf false
 git config --global core.eol lf
 git clone https://github.com/Finfra/jenkins_quickstart
 cd jenkins_quickstart/terraform/
-ssh-keygen -f ~/mykey
+ssh-keygen -f ~/.ssh/id_rsa -N ''
 
 terraform init
 terraform plan
@@ -29,9 +29,9 @@ echo "
 3.35.139.231  jm2
 ">> /etc/hosts
 
-curl jenkins1:8080|head -c 100
-curl jm1:8080|head -c 100
-curl jm2:8082|head -c 100
+curl jenkins1:8080|head -n 100
+curl jm1:8080|head -n 100
+curl jm2:8082|head -n 100
 ```
 
 # Hosts
@@ -47,7 +47,7 @@ curl jm2:8082|head -c 100
 ## jm2      : Artifactory Server
 * id/pw : admin/password
 
-### If your os has rebooted then do this.
+### OS를 재부팅했다면?
 * Artifactory reboot.
 ```
     ssh ubuntu@<ip> "sudo /usr/local/sbin/artifactoryReset.sh"
