@@ -9,7 +9,7 @@ resource "aws_instance" "Jenkins" {
   vpc_security_group_ids = [aws_security_group.allow-ssh.id, aws_security_group.allow-web.id]
 
   # the public SSH key
-  key_name   = aws_key_pair.mykey.key_name
+  key_name   = aws_key_pair.jkey.key_name
   private_ip = "172.22.101.101"
   provisioner "file" {
     source      = "script/base.sh"
@@ -55,7 +55,7 @@ resource "aws_instance" "jm1" {
   vpc_security_group_ids = [aws_security_group.allow-ssh.id, aws_security_group.allow-web.id]
 
   # the public SSH key
-  key_name   = aws_key_pair.mykey.key_name
+  key_name   = aws_key_pair.jkey.key_name
   private_ip = "172.22.101.111"
   provisioner "file" {
     source      = "script/base.sh"
@@ -100,7 +100,7 @@ resource "aws_instance" "jm2" {
   vpc_security_group_ids = [aws_security_group.allow-ssh.id, aws_security_group.allow-artifactory.id]
 
   # the public SSH key
-  key_name   = aws_key_pair.mykey.key_name
+  key_name   = aws_key_pair.jkey.key_name
   private_ip = "172.22.101.121"
   provisioner "file" {
     source      = "script/base.sh"
