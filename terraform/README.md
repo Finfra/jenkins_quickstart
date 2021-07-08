@@ -38,7 +38,7 @@ curl jm2:8082|head -c 100
 ## Jenkins1 : Jenkins Server
 * password(at First)
 ```
-    ssh -i ~/mykey ubuntu@<ip> "sudo cat /var/lib/jenkins/secrets/initialAdminPassword"
+    ssh ubuntu@<ip> "sudo cat /var/lib/jenkins/secrets/initialAdminPassword"
 ```
 
 ## jm1      : Tomcat Server
@@ -50,10 +50,10 @@ curl jm2:8082|head -c 100
 ### If your os has rebooted then do this.
 * Artifactory reboot.
 ```
-    ssh -i ~/mykey ubuntu@<ip> "sudo /usr/local/sbin/artifactoryReset.sh"
+    ssh ubuntu@<ip> "sudo /usr/local/sbin/artifactoryReset.sh"
 ```
 
 ### If you wnat to connect Artifactory OS (jm2)
 ```
-    ssh -i ~/mykey ubuntu@<ip> "sudo docker exec -it --user root artifactory bash"
+    ssh ubuntu@<ip> "sudo docker exec -it --user root artifactory bash"
 ```
