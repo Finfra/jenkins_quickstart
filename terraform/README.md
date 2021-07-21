@@ -50,10 +50,10 @@ curl jm2:8082|head -n 100
 ### OS를 재부팅했다면?
 * Artifactory reboot.
 ```
-    ssh ubuntu@<ip> "sudo /usr/local/sbin/artifactoryReset.sh"
+    ssh jm1 "sudo /usr/local/sbin/artifactoryReset.sh"
 ```
 
 ### If you wnat to connect Artifactory OS (jm2)
 ```
-    ssh ubuntu@<ip> "sudo docker exec -it --user root artifactory bash"
+    ssh jm2 "sudo docker exec -it --user root artifactory bash"
 ```
