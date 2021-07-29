@@ -6,7 +6,7 @@ resource "aws_instance" "Jenkins" {
   subnet_id = aws_subnet.main-public-1.id
 
   # the security group
-  vpc_security_group_ids = [aws_security_group.allow-ssh.id, aws_security_group.allow-web.id]
+  vpc_security_group_ids = [aws_security_group.allow-ssh.id, aws_security_group.allow-web.id, aws_security_group.allow-sonarqube.id]
 
   # the public SSH key
   key_name   = aws_key_pair.jkey.key_name
