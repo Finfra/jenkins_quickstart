@@ -9,8 +9,10 @@ echo ---------------------------------------------------------------------------
 apt-get -y install jenkins
 systemctl  enable  jenkins
 
-apt-get -y install gradle
-apt-get -y install maven
+apt install -y openjdk-11-jdk
+
+apt -y install gradle
+apt -y install maven
 apath=$(dirname $(ls -als $(ls -als $(which mvn) |awk '{print $NF}')|awk '{print $NF}'))
 echo export M2_HOME=${apath%/*} >> /etc/bash.bashrc
 echo export MAVEN_HOME=${apath%/*} >> /etc/bash.bashrc
