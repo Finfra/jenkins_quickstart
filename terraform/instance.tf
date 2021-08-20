@@ -91,7 +91,7 @@ resource "aws_instance" "jm1" {
 
 resource "aws_instance" "jm2" {
   ami           = var.AMIS
-  instance_type = "t2.small"
+  instance_type = "t2.medium"
 
   # the VPC subnet
   subnet_id = aws_subnet.main-public-1.id
